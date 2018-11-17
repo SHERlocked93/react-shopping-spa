@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class navSide extends Component {
   constructor(props) {
@@ -7,60 +8,26 @@ class navSide extends Component {
   
   render() {
     return (
-      <div className="navbar-default navbar-side" role="navigation">
+      <div className="navbar-default navbar-side">
         <div className="sidebar-collapse">
-          <ul className="nav" id="main-menu">
+          <ul className="nav">
             
+            {/* 一级导航 */}
             <li>
-              <a href="#"><i className="fa fa-dashboard"/> Dashboard</a>
-            </li>
-            <li>
-              <a href="#" className="active-menu"><i className="fa fa-desktop"/> UI Elements</a>
-            </li>
-            <li>
-              <a href="#"><i className="fa fa-bar-chart-o"/> Charts</a>
-            </li>
-            <li>
-              <a href="#"><i className="fa fa-qrcode"/> Tabs &amp; Panels</a>
+              <Link to="/"><i className="fa fa-dashboard"/>首页</Link>
             </li>
             
-            <li>
-              <a href="#"><i className="fa fa-table"/> Responsive Tables</a>
-            </li>
-            <li>
-              <a href="#"><i className="fa fa-edit"/> Forms </a>
-            </li>
-            
-            
-            <li>
-              <a href="#"><i className="fa fa-sitemap"/> Multi-Level Dropdown<span className="fa arrow"/></a>
-              <ul className="nav nav-second-level collapse">
+            {/* 二级导航 */}
+            <li className='active'>
+              <Link to="/"><i className="fa fa-sitemap"/>Multi-Level Dropdown<span className="fa arrow"/></Link>
+              <ul className="nav nav-second-level collapse in">
                 <li>
-                  <a href="#">Second Level Link</a>
+                  <Link to="/">Second Level Link</Link>
                 </li>
                 <li>
-                  <a href="#">Second Level Link</a>
-                </li>
-                <li>
-                  <a href="#">Second Level Link<span className="fa arrow"/></a>
-                  <ul className="nav nav-third-level collapse">
-                    <li>
-                      <a href="#">Third Level Link</a>
-                    </li>
-                    <li>
-                      <a href="#">Third Level Link</a>
-                    </li>
-                    <li>
-                      <a href="#">Third Level Link</a>
-                    </li>
-                  
-                  </ul>
-                
+                  <Link to="/">Second Level Link</Link>
                 </li>
               </ul>
-            </li>
-            <li>
-              <a href="#"><i className="fa fa-fw fa-file"/> Empty Page</a>
             </li>
           </ul>
         
