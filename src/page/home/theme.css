@@ -391,11 +391,10 @@ footer p {
 .top-navbar .navbar-brand {
   color: #fff;
   width: 260px;
-  text-align: left;
+  text-align: center;
   height: 60px;
   font-size: 30px;
   font-weight: 700;
-  text-transform: uppercase;
   line-height: 30px;
   background: #32323a;
 }
@@ -408,7 +407,7 @@ footer p {
   position: relative;
   display: inline-block;
   margin: 0;
-  padding: 0;
+  padding: 0 10px;
 }
 
 .top-navbar .nav > li > a {
@@ -425,9 +424,18 @@ footer p {
   background: transparent;
 }
 
+.top-navbar .nav > li:hover .dropdown-menu {
+  display: block;
+}
+
 .top-navbar .dropdown-menu {
   min-width: 230px;
+  top: 98%;
   border-radius: 0 0 4px 4px;
+}
+
+.dropdown-menu > li > a {
+  cursor: pointer;
 }
 
 .top-navbar .dropdown-menu > li > a:hover, .top-navbar .dropdown-menu > li > a:focus {
@@ -534,6 +542,11 @@ ul.nav.nav-second-level.collapse.in {
 
 .top-navbar .nav > li > a > i {
   margin-right: 2px;
+}
+
+.top-navbar .nav > li > a > span {
+  color: #666;
+  margin-right: 5px;
 }
 
 .top-navbar .navbar-brand:hover {
