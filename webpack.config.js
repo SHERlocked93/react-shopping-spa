@@ -3,17 +3,34 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const webpack = require('webpack')
 
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
+
 module.exports = {
-  entry: './src/app.jsx',
+  entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: "/dist/",
     filename: 'js/app.js'
   },
+  devServer: {
+    port: 9902,
+    historyApiFallback: {
+      index: '/dist/'
+    }
+  },
+  resolve: {
+    alias: {
+      src: resolve('src'),
+      page: resolve('src/page'),
+      component: resolve('src/component')
+    }
+  },
   module: {
     rules: [
       {
-        test: /\.jsx$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
@@ -34,7 +51,7 @@ module.exports = {
           use: ['css-loader', 'sass-loader']
         })
       }, {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpe?g|gif)$/,
         use: [{
           loader: 'url-loader', options: { limit: 8192, name: 'res/[name].[ext]' }
         }]
