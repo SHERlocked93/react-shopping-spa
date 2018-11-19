@@ -1,7 +1,9 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const webpack = require('webpack')
+const host = require('ip').address()
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -16,14 +18,28 @@ module.exports = {
   },
   devServer: {
     port: 9902,
+    host,
     historyApiFallback: {
       index: '/dist/'
+    },
+    proxy: {
+      '/manage': {
+        target: 'http://admintest.happymmall.com',
+        changeOrigin: true
+      },
+      '/user/logout.do': {
+        target: 'http://admintest.happymmall.com',
+        changeOrigin: true
+      },
     }
   },
   resolve: {
     alias: {
       src: resolve('src'),
+      api: resolve('src/api'),
       page: resolve('src/page'),
+      utils: resolve('src/utils'),
+      style: resolve('src/style'),
       component: resolve('src/component')
     }
   },
@@ -35,6 +51,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
+            plugins: ['lodash'],
             presets: ['env', 'react']
           }
         }
@@ -64,6 +81,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new LodashModuleReplacementPlugin,
     new HtmlWebpackPlugin({
       template: './src/index.html',
       favicon: './favicon.ico'

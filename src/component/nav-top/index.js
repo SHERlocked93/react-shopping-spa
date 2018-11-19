@@ -1,16 +1,26 @@
 import React, { Component } from 'react'
+import * as Utils from 'utils'
+import * as Api from 'api'
 import { Link } from 'react-router-dom'
 
 class NavTop extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      username: Utils.getStorage('userInfo').username || ''
+    }
   }
   
   /**
    * 退出登录
    */
   onLogout() {
-    console.log('this logout !')
+    Api.logout()
+      .then(res => {
+        Utils.removeStorage('userInfo')
+        window.location.href = '/login'
+      })
+      .catch(err => console.error(err))
   }
   
   render() {
@@ -23,7 +33,13 @@ class NavTop extends Component {
         <ul className="nav navbar-top-links navbar-right">
           <li className="dropdown">
             <a className="dropdown-toggle" href="#" aria-expanded="false">
-              <i className="fa fa-user fa-fw"/><span>欢迎：admin</span><i className="fa fa-caret-down"/>
+              <i className="fa fa-user fa-fw"/>
+              {
+                this.state.username
+                ? <span>欢迎：{this.state.username}</span>
+                : <span>欢迎您</span>
+              }
+              <i className="fa fa-caret-down"/>
             </a>
             <ul className="dropdown-menu dropdown-user">
               <li>
