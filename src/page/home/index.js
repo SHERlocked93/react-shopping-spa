@@ -26,7 +26,7 @@ class Home extends Component {
   
   render() {
     return (
-      <div id='page-wrapper'>
+      <div>
         <PageTitle title='首页'/>
         
         <ul className="list-group">

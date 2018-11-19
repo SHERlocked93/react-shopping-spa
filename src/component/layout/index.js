@@ -14,7 +14,9 @@ class Layout extends Component {
       <div id='wrapper'>
         <NavTop/>
         <NavSide/>
-        {this.props.children}
+        <div id='page-wrapper'>
+          {this.props.children}
+        </div>
       </div>
     )
   }

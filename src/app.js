@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-ro
 import Home from 'page/home'
 import Login from 'page/login'
 import Layout from 'component/layout'
+import Error from 'component/error'
 
 import './index.scss'
 import 'style/theme.css'
@@ -27,6 +28,7 @@ class App extends Component {
                 <Route exact path='/product-category' component={Home}/>
                 <Route exact path='/order' component={Home}/>
                 <Route exact path='/user' component={Home}/>
+                <Route component={Error}/>
               </Switch>
             </Layout>
           }/>
