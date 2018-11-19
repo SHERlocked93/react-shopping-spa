@@ -7,6 +7,7 @@ import Login from 'page/login'
 import Layout from 'component/layout'
 
 import './index.scss'
+import 'style/theme.css'
 
 class App extends Component {
   constructor(props) {

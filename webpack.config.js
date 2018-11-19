@@ -27,7 +27,7 @@ module.exports = {
         target: 'http://adminv2.happymmall.com',
         changeOrigin: true
       },
-      '/user': {
+      '/user/logout.do': {
         target: 'http://adminv2.happymmall.com',
         changeOrigin: true
       },
@@ -39,6 +39,7 @@ module.exports = {
       api: resolve('src/api'),
       page: resolve('src/page'),
       utils: resolve('src/utils'),
+      style: resolve('src/style'),
       component: resolve('src/component')
     }
   },

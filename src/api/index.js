@@ -24,3 +24,10 @@ export const logout = () => fetch({
   url: '/user/logout.do',
   method: 'post'
 })
+
+/**
+ * 首页：获取统计数值
+ */
+export const getHomeCount = () => fetch({
+  url: '/manage/statistic/base_count.do'
+})
