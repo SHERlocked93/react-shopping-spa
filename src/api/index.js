@@ -31,3 +31,12 @@ export const logout = () => fetch({
 export const getHomeCount = () => fetch({
   url: '/manage/statistic/base_count.do'
 })
+
+/**
+ * 首页：获取统计数值
+ */
+export const getUserList = ({ pageNum, pageSize }) => fetch({
+  url: '/manage/user/list.do',
+  method: 'post',
+  data: { pageNum, pageSize }
+})

@@ -19,7 +19,7 @@ service.interceptors.response.use(
     if (data.status === 0) return data.data
     else if (data.status === 10) {
       console.log(data, ' 没有登陆')
-      // doLogin()
+      doLogin()
       return Promise.reject(data.msg || data.data)
     } else {
       return Promise.reject(data.msg || data.data)

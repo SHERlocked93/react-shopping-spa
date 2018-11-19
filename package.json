@@ -29,6 +29,7 @@
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
     "lodash-webpack-plugin": "^0.11.5",
+    "rc-pagination": "^1.17.3",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-router-dom": "4.2.2"

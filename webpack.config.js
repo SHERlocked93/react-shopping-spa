@@ -24,11 +24,11 @@ module.exports = {
     },
     proxy: {
       '/manage': {
-        target: 'http://adminv2.happymmall.com',
+        target: 'http://admintest.happymmall.com',
         changeOrigin: true
       },
       '/user/logout.do': {
-        target: 'http://adminv2.happymmall.com',
+        target: 'http://admintest.happymmall.com',
         changeOrigin: true
       },
     }
