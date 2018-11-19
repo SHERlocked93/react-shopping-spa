@@ -37,11 +37,15 @@ class Login extends Component {
     formData.append('password', this.state.password)
     Api.login(formData)
       .then(res => {
+        Utils.setStorage('userInfo', res)
         this.props.history.push(this.state.redirect)
       })
       .catch(err => alert(err))
   }
   
+  /**
+   * 按enter键
+   */
   onKeyUp(ev) {
     ev.keyCode === 13 && this.onSubmit()
   }

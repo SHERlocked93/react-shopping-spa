@@ -1,4 +1,12 @@
 /**
+ * 创建于 2018/11/19
+ * 作者: SHERlocked93
+ * 功能: 工具
+ */
+
+export * from './storage'
+
+/**
  * 获取URL参数
  */
 export const getUrlParam = (name) => {

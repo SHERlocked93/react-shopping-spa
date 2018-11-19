@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const webpack = require('webpack')
 const host = require('ip').address()
 
@@ -23,9 +24,13 @@ module.exports = {
     },
     proxy: {
       '/manage': {
-        target: 'http://admintest.happymmall.com',
+        target: 'http://adminv2.happymmall.com',
         changeOrigin: true
-      }
+      },
+      '/user': {
+        target: 'http://adminv2.happymmall.com',
+        changeOrigin: true
+      },
     }
   },
   resolve: {
@@ -45,6 +50,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
+            plugins: ['lodash'],
             presets: ['env', 'react']
           }
         }
@@ -74,6 +80,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new LodashModuleReplacementPlugin,
     new HtmlWebpackPlugin({
       template: './src/index.html',
       favicon: './favicon.ico'
